@@ -5,7 +5,9 @@ import ToDoList from './ToDoList';
 const App = () => {
 
   return (
-    <ToDoList />
+    <div>
+      <ToDoList />
+    </div>
   );
 }
 

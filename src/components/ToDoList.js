@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import ToDoInput from './ToDoInput';
+
 
 class ToDoList extends Component {
 
@@ -7,7 +9,7 @@ class ToDoList extends Component {
     return this.props.todos.map((todo) => {
         return(
           <div className='todo_item' key={todo.id}>
-            
+            <li>{todo.description}</li>
           </div>
         )
       }
@@ -16,7 +18,15 @@ class ToDoList extends Component {
 
 
   render(){
-    return
+    console.log(this.props);
+    return (
+      <div>
+        <div>ToDoList</div>
+        <ToDoInput props={this.props} />
+        <div>{this.renderToDos()}</div>
+      </div>
+
+    );
   }
 }
 
