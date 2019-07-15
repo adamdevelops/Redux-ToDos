@@ -5,40 +5,42 @@ import { addTODO } from '../actions'
 
 class ToDoInput extends Component {
 
-  constructor(props) {
-    super(props);
+  // constructor(props) {
+  //   super(props);
+  //
+  //   this.onChange = this.onChange.bind(this);
+  //   this.onSubmit = this.onSubmit.bind(this);
+  //
+  //   };
 
-    this.onChange = this.onChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
+  // onSubmit = (event) => {
+  //   event.preventDefault();
+  //   console.log(event.target.value);
+  //   this.addTODO("add new todo");
+  // }
+  //
+  // onChange = (event) => {
+  //   alert(event.target.value);
+  //   console.log(event.target.value);
+  //   this.props.addTODO(event.target.value);
+  //   event.preventDefault();
+  // }
 
-    };
-
-  onSubmit = (event) => {
-    event.preventDefault();
-    alert(event.target.value);
-    console.log(event.target.value);
-    this.props.addTODO(event.target.value)
-  }
-
-  onChange = (event) => {
-    alert(event.target.value);
-    console.log(event.target.value);
-    this.props.addTODO(event.target.value);
-    event.preventDefault();
-  }
-
-  render(){
-
+  renderInputForm(){
+    const newtodo = "add new todo";
     return(
-      <div>
-        <form onSubmit={this.onSubmit}>
+        <form>
           <input type="text"  placeholder="Add ToDo" />
-          <button type="submit" value="Add"> Add Todo</button>
+          <button type="submit" value="Add" onClick={() => this.props.addTODO()}> Add Todo</button>
         </form>
-      </div>
     );
   }
 
+  render(){
+    console.log('props');
+    console.log(this.props);
+    return <div> {this.renderInputForm()} </div>;
+  }
 }
 
 const mapStateToProps = (state) => {

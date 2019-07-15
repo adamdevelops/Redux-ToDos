@@ -18,11 +18,9 @@ class ToDoList extends Component {
 
 
   render(){
-    console.log(this.props);
     return (
       <div>
         <div>ToDoList</div>
-        <ToDoInput props={this.props} />
         <div>{this.renderToDos()}</div>
       </div>
 
@@ -31,6 +29,8 @@ class ToDoList extends Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log('state')
+  console.log(state)
   return {todos: state.todos}
 }
 
