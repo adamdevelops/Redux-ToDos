@@ -11,6 +11,7 @@ const addToDoReducer = (state = intialState, action) => {
 
   if (action.type === 'ADD_TODO'){
     console.log('inside if reducer')
+    console.log(action);
     console.log(state);
 
     console.log(action.payload);
