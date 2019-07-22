@@ -13,11 +13,9 @@ class ToDoInput extends Component {
   //
   //   };
 
-  // onSubmit = (event) => {
-  //   event.preventDefault();
-  //   console.log(event.target.value);
-  //   this.addTODO("add new todo");
-  // }
+  // const preventRefresh = {event => {
+  //   event.preventDefault()
+  // }}
   //
   // onChange = (event) => {
   //   alert(event.target.value);
@@ -27,9 +25,10 @@ class ToDoInput extends Component {
   // }
 
   renderInputForm(){
-    const newtodo = "add new todo";
     return(
-        <form>
+        <form onSubmit = {event => {
+        event.preventDefault()  //prevent screen refresh
+      }}>
           <input type="text"  placeholder="Add ToDo" />
           <button type="submit" value="Add" onClick={() => this.props.addTODO()}> Add Todo</button>
         </form>

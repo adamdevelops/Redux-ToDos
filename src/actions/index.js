@@ -1,5 +1,4 @@
-const nextId = 3;
-
+let nextId = 3;
 // const todo = {
 //   id: nextId,
 //   description: "add new todo"
@@ -7,10 +6,11 @@ const nextId = 3;
 
 //Add todo
 export const addTODO = todo => {
+
   return{
     type: 'ADD_TODO',
     payload: {
-      id: 3,
+      id: nextId++,
       description: "add new todo"
     }
   };

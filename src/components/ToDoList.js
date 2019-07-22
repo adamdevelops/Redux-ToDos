@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import ToDoInput from './ToDoInput';
 
 
 class ToDoList extends Component {
@@ -29,7 +28,7 @@ class ToDoList extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log('state')
+  console.log('state in TodoList')
   console.log(state)
   return {todos: state.todos}
 }
