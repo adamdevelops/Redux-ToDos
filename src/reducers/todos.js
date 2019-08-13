@@ -1,11 +1,8 @@
-const intialState = {
-    todos: [
-      {id: 1, description: 'bake cookies'},
-      {id: 2, description: 'get groceries'}
-    ]
+const initialState = {
+    todos: []
   };
 
-const addToDoReducer = (state = intialState.todos, action) => {
+const addToDoReducer = (state = initialState.todos, action) => {
   console.log('inside reducer');
   console.log(state);
 
@@ -21,6 +18,12 @@ const addToDoReducer = (state = intialState.todos, action) => {
         action.payload
       ];
 
+      case 'DELETE_TODO':
+        console.log(action.payload);
+        const delID = action.payload.id
+        const newState = state.filter(state => state.id !== delID);
+        return newState;
+
     default:
       return state;
 
@@ -28,20 +31,6 @@ const addToDoReducer = (state = intialState.todos, action) => {
 }
 
 
-  // if (action.type === 'ADD_TODO'){
-  //   console.log('inside if reducer in reducer')
-  //   console.log(action);
-  //   console.log(state);
-  //
-  //   console.log(action.payload);
-  //   return [
-  //     ...state,
-  //     action.payload
-  //   ];
-    // state.concat(action.payload);
-//   }
-//
-//   return state;
-// }
+
 
 export default addToDoReducer

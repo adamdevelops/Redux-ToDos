@@ -1,8 +1,4 @@
-let nextId = 3;
-// const todo = {
-//   id: nextId,
-//   description: "add new todo"
-// }
+let nextId = 0;
 
 //Add todo
 export const addTODO = todo => {
@@ -11,7 +7,18 @@ export const addTODO = todo => {
     type: 'ADD_TODO',
     payload: {
       id: nextId++,
-      description: "add new todo"
+      description: todo
+    }
+  };
+};
+
+export const deleteTODO = todo => {
+
+  return{
+    type: 'DELETE_TODO',
+    payload: {
+      id: todo,
+      description: todo
     }
   };
 };
