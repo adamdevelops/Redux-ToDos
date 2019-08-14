@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { addTODO, deleteTODO } from '../actions'
+import { addTODO } from '../actions';
 
 
 class ToDoInput extends Component {
@@ -9,7 +9,7 @@ class ToDoInput extends Component {
     super(props);
 
     this.onSubmit = this.onSubmit.bind(this);
-    this.onDelete = this.onDelete.bind(this);
+
 
     };
 
@@ -18,17 +18,13 @@ class ToDoInput extends Component {
   // }}
   //
   onSubmit = (event) => {
-    event.preventDefault()  //prevent screen refresh
+    event.preventDefault();  //prevent screen refresh
     const value = this.input.value;
     alert(value);
     console.log(value);
     this.props.addTODO(value);
   }
 
-  onDelete = (event) => {
-    event.preventDefault()  //prevent screen refresh
-    this.props.deleteTODO(3);
-  }
 
   renderInputForm(){
     return(
@@ -45,7 +41,6 @@ class ToDoInput extends Component {
     console.log(this.props);
     return <div>
       {this.renderInputForm()}
-      <a onClick={this.onDelete}>Delete</a>
     </div>;
   }
 }
@@ -54,4 +49,4 @@ const mapStateToProps = (state) => {
   return {todos: state.todos}
 }
 
-export default connect(mapStateToProps, {addTODO, deleteTODO})(ToDoInput);
+export default connect(mapStateToProps, {addTODO})(ToDoInput);

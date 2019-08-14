@@ -1,16 +1,29 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import { deleteTODO } from '../actions';
+
 
 
 class ToDoList extends Component {
+  constructor(props) {
+    super(props);
+
+    this.onDelete = this.onDelete.bind(this);
+
+    };
+
+    onDelete = (event, todo) => {
+      this.props.deleteTODO(todo.id);
+    }
 
   renderToDos(){
     return this.props.todos.map((todo) => {
         return(
           <div className='todo_item' key={todo.id}>
-            <li>{todo.description}</li>
+            <a onClick={(event) => this.onDelete(event, todo)}><li>{todo.description}</li></a>
           </div>
         )
+
       }
     )
   }
@@ -33,4 +46,4 @@ const mapStateToProps = (state) => {
   return {todos: state.todos}
 }
 
-export default connect(mapStateToProps)(ToDoList)
+export default connect(mapStateToProps, {deleteTODO})(ToDoList)

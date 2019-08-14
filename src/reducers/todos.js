@@ -19,9 +19,11 @@ const addToDoReducer = (state = initialState.todos, action) => {
       ];
 
       case 'DELETE_TODO':
+        console.log('inside delete case');
         console.log(action.payload);
-        const delID = action.payload.id
-        const newState = state.filter(state => state.id !== delID);
+        const delID = action.payload.id;
+        const newState = state.filter(state => state.id != delID);
+
         return newState;
 
     default:

@@ -17,8 +17,7 @@ export const deleteTODO = todo => {
   return{
     type: 'DELETE_TODO',
     payload: {
-      id: todo,
-      description: todo
+      id: todo,      
     }
   };
 };
