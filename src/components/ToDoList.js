@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import { deleteTODO } from '../actions';
+import { connect } from 'react-redux';
+import { deleteTODO, editTODO } from '../actions';
 
 
 
@@ -9,6 +9,7 @@ class ToDoList extends Component {
     super(props);
 
     this.onDelete = this.onDelete.bind(this);
+    this.onEdit = this.onEdit.bind(this);
 
     };
 
@@ -16,11 +17,16 @@ class ToDoList extends Component {
       this.props.deleteTODO(todo.id);
     }
 
+    onEdit = (event, todo) => {
+      this.props.editTODO(todo);
+    }
+
   renderToDos(){
     return this.props.todos.map((todo) => {
         return(
           <div className='todo_item' key={todo.id}>
             <a onClick={(event) => this.onDelete(event, todo)}><li>{todo.description}</li></a>
+            <a onClick={(event) => this.onEdit(event, todo)}>Edit</a>
           </div>
         )
 
@@ -46,4 +52,4 @@ const mapStateToProps = (state) => {
   return {todos: state.todos}
 }
 
-export default connect(mapStateToProps, {deleteTODO})(ToDoList)
+export default connect(mapStateToProps, {deleteTODO, editTODO})(ToDoList)
