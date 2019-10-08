@@ -26,23 +26,22 @@ const addToDoReducer = (state = initialState.todos, action) => {
 
       return newState;
 
-      case 'EDIT_TODO':
-        console.log('inside edit case');
-        console.log(action.payload);
-        const editID = action.payload.id;
+    case 'EDIT_TODO':
+      console.log('inside edit case');
+      console.log(action.payload);
+      const editID = action.payload.id;
 
-        return state.map((todo, index) => {
-          if (index !== editID){
-            // Do not edit item
-            return todo
-          }
+      return state.map((todo, index) => {
+        if (index !== editID) {
+          // This isn't the item we care about - keep it as-is
+          return todo
+        }
 
-          // Otherwise, update todo
-          return {
+        // Otherwise, this is the one we want - return an updated value
+        return {
             ...todo,
             ...action.payload
           }
-
         })
 
     default:

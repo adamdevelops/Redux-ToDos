@@ -1,5 +1,5 @@
 let nextId = 0;
-let newtodo = "todo";
+// let newtodo = "todo";
 
 //Add todo
 export const addTODO = todo => {
@@ -29,7 +29,7 @@ export const editTODO = todo => {
     type: 'EDIT_TODO',
     payload: {
       id: todo.id,
-      description: newtodo
+      description: todo.description
     }
   };
 };
